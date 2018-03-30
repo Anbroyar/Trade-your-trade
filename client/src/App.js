@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import HomepageLayout from './components/hompageLayout';
+import Homepage from './components/Homepage';
+import HelpWanted from './components/HelpWanted'
+import Navbar from './components/Navbar';
 
 class App extends Component {
   render() {
