@@ -6,14 +6,16 @@
 	margin: 20px;
 }
 
-/*.radius-input {
-	max-width: 100px;
-}*/
-
-.column-one-text {
-	text-align: center;
+.label-text {
+	margin: 0px 10px 0px 10px;
 }
 
-.column-two-text {
-	text-align: center;
+.form-search-skills, .form-search-radius {
+	margin: 10px 0px 10px 0px;
+	justify-content: center;
+}
+
+.create-ad {
+	margin: 0px 10px 0px 10px;
+	background: #56f;
 }
