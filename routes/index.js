@@ -6,8 +6,8 @@ const profileRoute = require('./profileRoute');
 const searchRoute = require('./searchRoute');
 
 router.use('/api', apiRoutes);
-router.use('/offers', offersRoute);
-router.use('/profile', profileRoute);
-router.use('/search', searchRoute);
+// router.use('/offers', offersRoute);
+// router.use('/profile', profileRoute);
+// router.use('/search', searchRoute);
 
 module.exports = router;
