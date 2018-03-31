@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink
  } from 'reactstrap';
+ import "./Navbar.css";
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -26,25 +27,25 @@ class MyNavbar extends React.Component {
   }
 
   homeClicked = () => {
-      this.props.history.push("/")
+    this.props.history.push("/")
   }
 
   render() {
     return (
-      <div>
+      <div className="navbar-main">
         <Navbar color="faded" light expand="md">
-          <NavbarBrand onClick={this.homeClicked}>Trade Your Trade</NavbarBrand>
+          <NavbarBrand className="navbar-title navbar-text" onClick={this.homeClicked}>Trade Your Trade</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink id="navbar-text" href="/login">Login</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/helpwanted">Help Wanted</NavLink>
+                <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="">Search</NavLink>
+                <NavLink id="navbar-text" href="">Search</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

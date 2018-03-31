@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './Homepage.css';
 
 class Homepage extends Component {
   render() {
     return (
-      <div className="help-wanted">
+      <div className="homepage-content">
         <h1> Here's The Homepage</h1>
       </div>
     );

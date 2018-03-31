@@ -1,0 +1,12 @@
+.navbar-title:hover {
+  cursor: pointer;
+}
+
+.navbar-main {
+  background-color: #e56;
+  color: #fff;
+}
+
+#navbar-text {
+	color: white;
+}
