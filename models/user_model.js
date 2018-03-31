@@ -24,30 +24,34 @@ const userSchema = new Schema ({
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
-
   phonenumber:{
     type: String,
     unique: true,
     required: true,
     trim: true
   }
-
   zipcode: {
-    type: string,
+    type: Number,
+    required: true
   },
-
   skill1: {
-    type: string,
+    type: String,
   },
-
+  s1l: {
+    type: String,
+  },
   skill2: {
-    type: string,
+    type: String,
   },
-
+  s2l: {
+    type: String,
+  },
   skill3: {
-    type: string,
+    type: String,
   },
-
+  s3l: {
+    type: String,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
