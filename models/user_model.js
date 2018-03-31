@@ -29,7 +29,7 @@ const userSchema = new Schema ({
     unique: true,
     required: true,
     trim: true
-  }
+  },
   zipcode: {
     type: Number,
     required: true
