@@ -13,20 +13,20 @@ const jobsSchema = new Schema ({
     required: true
   },
   totalhours: {
-    type: Number,
-    required: true
+    type: Number
   },
   totalCost: {
-    type: Number,
-    required: true
+    type: Number
   },
   userRequested: {
-    type: String,
-    trim: true
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
-  userCompleted: {
-    type: String,
-    trim, true
+  userAssigned: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   dateCompleted: {
     type: Date,
