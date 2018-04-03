@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import { Col, Row, Card, isOpen, toggle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 export default class AddSkill extends React.Component{
     constructor(props) {
@@ -19,7 +19,7 @@ export default class AddSkill extends React.Component{
     
     render() {
         return(
-            <<Card>
+            <Card>
                 <Row>
                     <Col xs='12'>
                         <Row>
