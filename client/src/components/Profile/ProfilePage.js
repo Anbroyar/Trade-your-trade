@@ -1,6 +1,7 @@
 import React from 'react';
 import { Media, Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
 import zipcodes from 'zipcodes';
+import AddSkill from 'AddSkill.js';
 
 export default class Profile extends React.Component {
     render() {
@@ -23,6 +24,9 @@ export default class Profile extends React.Component {
                         </Card>
                     </Col>
                 </Row>
+                <AddSkill />
+                <AddSkill />
+                <AddSkill />
             </Container>
         )
     }
