@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 import "./WantedAd.css";
 
 class WantedAd extends Component {
-  render(
+  render () {
     return (
       <div>
         <Card>
@@ -21,7 +21,7 @@ class WantedAd extends Component {
         </Card>
       </div>
     )
-  );
+  };
 };
 
 export default WantedAd;
