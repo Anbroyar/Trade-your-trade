@@ -8,18 +8,14 @@ export default class Profile extends React.Component {
         return (
             <Container>
                 <Row>
-                    <Col xs="12" md="3">
-                        <img src={props.userPhoto}/>
-                    </Col>
                     <Col xs="12" md="9">
                         <Card>
                             <CardBody>
                                 <CardTitle>My Profile</CardTitle>
-                                <CardText>Name: {props.firstname} {props.lastname}</CardText>
-                                <CardText>E-mail: {props.email}</CardText>
-                                <CardText>Phone: {props.phonenumber}</CardText>
+                                <CardText>Photo URL: {this.props.userPhoto}</CardText>
+                                <CardText>Name: {this.props.firstname} {this.props.lastname}</CardText>
+                                <CardText>E-mail: {this.props.email}</CardText>
                                 <CardText>ZIP Code: {props.zipcode}</CardText>
-                                <CardText>Location:</CardText>
                             </CardBody>  
                         </Card>
                     </Col>
