@@ -68,6 +68,6 @@ router.route('/users')
         // to the next middleware to handle the error.
         next(err);
       });
-});
+  });
 
 module.exports = router;
