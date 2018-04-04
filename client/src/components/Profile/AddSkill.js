@@ -59,7 +59,7 @@ export default class AddSkill extends React.Component{
                                     </DropdownMenu>
                                 </Dropdown>
                             </Col>
-                            <Col xs='12' m={{size: 3, offset: 1}}>
+                            {/* <Col xs='12' m={{size: 3, offset: 1}}>
                             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle caret>
                                     Select Competency Level
@@ -69,7 +69,7 @@ export default class AddSkill extends React.Component{
                                     <DropdownItem>Intermediate</DropdownItem>
                                     <DropdownItem>Expert</DropdownItem>                                    
                                 </DropdownMenu>
-                            </Dropdown>
+                            </Dropdown> */}
                             </Col>
                         </Row>
                     </Col> 
