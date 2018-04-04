@@ -39,24 +39,14 @@ const UserSchema = new Schema ({
     type: Number,
     required: true
   },
-  skill1: {
-    type: String,
-  },
-  s1l: {
-    type: String,
-  },
-  skill2: {
-    type: String,
-  },
-  s2l: {
-    type: String,
-  },
-  skill3: {
-    type: String,
-  },
-  s3l: {
-    type: String,
-  },
+  skills: {
+    type: [{type: Schema.Types.ObjectId, ref: 'Skills'}],
+    validate: {
+      validator: function(value){
+        return value.length <= 3;
+      }
+    }
+  }
 });
 UserSchema.pre('save', function(next) {
   const user = this;

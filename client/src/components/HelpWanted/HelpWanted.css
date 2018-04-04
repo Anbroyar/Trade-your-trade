@@ -7,15 +7,23 @@
 }
 
 .label-text {
-	margin: 0px 10px 0px 10px;
+	padding: 10px;
 }
 
 .form-search-skills, .form-search-radius {
-	margin: 10px 0px 10px 0px;
+	margin: 10px;
 	justify-content: center;
 }
 
+#hoursSelect {
+	max-width: 100px;
+}
+
+#skillSelect {
+	min-width: 250px;
+}
+
 .create-ad {
-	margin: 0px 10px 0px 10px;
+	margin: 10px;
 	background: #56f;
 }
