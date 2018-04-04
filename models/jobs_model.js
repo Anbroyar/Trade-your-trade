@@ -2,30 +2,31 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const completedSchema = new Schema ({
+const jobsSchema = new Schema ({
   jobname: {
     type: String,
     required: true
   },
   jobtype: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Skills',
     required: true
   },
   totalhours: {
-    type: Number,
-    required: true
+    type: Number
   },
   totalCost: {
-    type: Number,
-    required: true
+    type: Number
   },
   userRequested: {
-    type: String,
-    trim: true
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
-  userCompleted: {
-    type: String,
-    trim, true
+  userAssigned: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
   dateCompleted: {
     type: Date,
@@ -33,6 +34,6 @@ const completedSchema = new Schema ({
   }
 });
 
-const Completed = mongoose.model("Completed", completedSchema);
+const Jobs = mongoose.model("Jobs", jobsSchema);
 
 module.exports = Completed;
