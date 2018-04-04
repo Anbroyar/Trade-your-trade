@@ -5,9 +5,6 @@ const db = require('../models');
 const mustBeLoggedIn = require('./mustBeLoggedIn');
 
 function getCurrentUser(req, res) {
-  // I'm picking only the specific fields its OK for the audience to see publicly
-  // never send the whole user object in the response, and only show things it's OK
-  // for others to read (like ID, name, email address, etc.)
   const { id, username } = req.user;
   res.json({
     id, username
@@ -56,7 +53,7 @@ router.route('/users')
       })
       .catch(err => {
         // if this error code is thrown, that means the username already exists.
-        // let's handle that nicely by redirecting them back to the create screen
+        // redirecting users back to the create screen
         // with that flash message
         if (err.code === 11000) {
           res.status(400).json({
@@ -64,7 +61,7 @@ router.route('/users')
           })
         }
 
-        // otherwise, it's some nasty unexpected error, so we'll just send it off to
+        // unexpected error, so we'll just send it off 
         // to the next middleware to handle the error.
         next(err);
       });
