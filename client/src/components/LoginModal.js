@@ -7,11 +7,13 @@ class LoginModal extends React.Component {
   state = {
       modal: false,
       username: '',
-      password: ''
+      password: '',
+      errors: null
   }
 
   handleChange = event => this.setState({
-    [event.target.name]: event.target.value
+    [event.target.name]: event.target.value,
+    errors: null
   })
 
   submit = event => axios({
@@ -21,6 +23,12 @@ class LoginModal extends React.Component {
         username: this.state.username,
         password: this.state.password
       }
+  })
+  .then(this.toggle)
+  .catch((errorResponse) => {
+    this.setState({
+      errors: errorResponse.response.data
+    })
   })
 
 
@@ -39,6 +47,8 @@ class LoginModal extends React.Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle}>
                   Sign In
+                  <br/>
+                  {this.state.errors && "Errors: " + JSON.stringify(this.state.errors)}
               </ModalHeader>
               <ModalBody>
                   <div className="form-group">
