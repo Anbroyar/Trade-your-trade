@@ -7,6 +7,27 @@ class SearchBar extends Component {
             <div>
                 <Form>
                     <FormGroup>
+                        <Label for="skillSelect">Choose a skill</Label>
+                            <Input type="dropDown" name="skill" id="skillSelect">
+                            <Dropdown isOpen={isOpen} toggle={toggle}>
+                                <DropdownToggle>
+                                    Choose a skill
+                                </DropdownToggle>
+                                <DropdownMenu
+                                    modifiers={{
+                                        setMaxHeight: {
+                                            enabled: true,
+                                            order: 890,
+                                            fn: (data) => {
+                                                return {...data, styles: {...data.styles, overflow: 'auto', maxHeight: 100,},};
+                                            },
+                                        },
+                                    }}
+                                >
+                                    <DropdownItem>Another Action</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                            </Input>
 		                <Label for="radiusSelect" className="label-text">Search for jobs within</Label>
 		        	        <Input type="select" name="select" id="radiusSelect">
 		                        <option>10</option>
