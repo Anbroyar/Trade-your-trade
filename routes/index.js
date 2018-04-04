@@ -10,4 +10,6 @@ router.use('/api', apiRoutes);
 // router.use('/profile', profileRoute);
 // router.use('/search', searchRoute);
 
+// router.use(require('./htmlRoutes'));
+
 module.exports = router;
