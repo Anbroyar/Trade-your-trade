@@ -1,8 +1,8 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
-const db = require('../models');
-const mustBeLoggedIn = require('./mustBeLoggedIn');
+const db = require('../../models');
+const mustBeLoggedIn = require('../mustBeLoggedIn');
 
 function getCurrentUser(req, res) {
   const { id, username } = req.user;
