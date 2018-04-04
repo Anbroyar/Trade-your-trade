@@ -10,6 +10,7 @@ import {
   NavLink
  } from 'reactstrap';
  import "./Navbar.css";
+ import LoginModal from '../LoginModal'
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -39,7 +40,8 @@ class MyNavbar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink id="navbar-text" href="/login">Login</NavLink>
+                {/* <NavLink id="navbar-text" href="/login">Login</NavLink> */}
+                <LoginModal />
               </NavItem>
               <NavItem>
                 <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
