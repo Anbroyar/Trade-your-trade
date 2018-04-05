@@ -82,7 +82,7 @@ export class LoginModal extends AbstractUserModalForm {
 }
 
 export class RegisterModal extends AbstractUserModalForm {
-  url = '/api/register???'
+  url = '/api/users'
   headerText = 'Register'
   toggleText = 'REGISTER'
 }
