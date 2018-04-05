@@ -52,7 +52,7 @@ class AbstractUserModalForm extends React.Component {
               <ModalHeader toggle={this.toggle}>
                   {this.headerText}
                   <br/>
-                  {this.state.errors && "Errors: " + JSON.stringify(this.state.errors)}
+                  {this.state.errors && JSON.stringify(this.state.errors.message)}
               </ModalHeader>
               <ModalBody>
                   <div className="form-group">
