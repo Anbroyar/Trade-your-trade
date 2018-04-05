@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import HelpWanted from './components/HelpWanted';
 import Navbar from './components/Navbar';
+import SearchPage from './components/SearchPage/SearchPage';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/helpwanted" component={HelpWanted} />
+            <Route exact path="/searchpage" component={SearchPage} />
           </Switch>
           </Fragment> 
         </Router>
