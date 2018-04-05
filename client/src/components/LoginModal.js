@@ -66,7 +66,7 @@ class AbstractUserModalForm extends React.Component {
               </ModalBody>
               <ModalFooter>
                   <Button color="primary" onClick={this.submit}>
-                      Login
+                      Submit
                   </Button>
               </ModalFooter>
           </Modal>
@@ -84,7 +84,7 @@ export class LoginModal extends AbstractUserModalForm {
 export class RegisterModal extends AbstractUserModalForm {
   url = '/api/users'
   headerText = 'Register'
-  toggleText = 'REGISTER'
+  toggleText = 'Register'
 }
 
 export default LoginModal;
