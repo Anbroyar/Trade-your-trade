@@ -47,7 +47,7 @@ class MyNavbar extends React.Component {
                 <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="navbar-text" href="">Search</NavLink>
+                <NavLink id="navbar-text" href="/SearchPage">Search</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
