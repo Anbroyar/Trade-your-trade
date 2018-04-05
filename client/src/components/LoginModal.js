@@ -76,7 +76,7 @@ class AbstractUserModalForm extends React.Component {
 }
 
 export class LoginModal extends AbstractUserModalForm {
-  url = '/api/auth'
+  url = '/api/users'
   headerText = 'Sign In'
   toggleText = 'LOGIN'
 }

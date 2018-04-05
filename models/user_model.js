@@ -17,12 +17,12 @@ const UserSchema = new Schema ({
   firstname: {
     type:String,
     trim: true,
-    required: true,
+    // required: true,
   },
   lastname: {
     type:String,
     trim: true,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
@@ -32,12 +32,12 @@ const UserSchema = new Schema ({
   phonenumber:{
     type: String,
     unique: true,
-    required: true,
+    // required: true,
     trim: true
   },
   zipcode: {
     type: Number,
-    required: true
+    // required: true
   },
   skills: {
     type: [{type: Schema.Types.ObjectId, ref: 'Skills'}],
