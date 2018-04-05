@@ -3,7 +3,11 @@ import axios from 'axios';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
 
-class LoginModal extends React.Component {
+class AbstractUserModalForm extends React.Component {
+
+  toggleText = null
+  headerText = null
+
   state = {
       modal: false,
       username: '',
@@ -17,7 +21,7 @@ class LoginModal extends React.Component {
   })
 
   submit = event => axios({
-      url: '/api/auth', 
+      url: this.url, 
       method: 'post',
       data: {
         username: this.state.username,
@@ -42,13 +46,13 @@ class LoginModal extends React.Component {
       <div>
           <Button color="danger" onClick={this.toggle}>
               {this.props.buttonLabel}
-              LOGIN
+              {this.toggleText}
           </Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle}>
-                  Sign In
+                  {this.headerText}
                   <br/>
-                  {this.state.errors && "Errors: " + JSON.stringify(this.state.errors)}
+                  {this.state.errors && JSON.stringify(this.state.errors)}
               </ModalHeader>
               <ModalBody>
                   <div className="form-group">
@@ -62,13 +66,25 @@ class LoginModal extends React.Component {
               </ModalBody>
               <ModalFooter>
                   <Button color="primary" onClick={this.submit}>
-                      Login
+                      Submit
                   </Button>
               </ModalFooter>
           </Modal>
       </div>
       );
   }
+}
+
+export class LoginModal extends AbstractUserModalForm {
+  url = '/api/auth'
+  headerText = 'Sign In'
+  toggleText = 'Login'
+}
+
+export class RegisterModal extends AbstractUserModalForm {
+  url = '/api/users'
+  headerText = 'Register'
+  toggleText = 'Register'
 }
 
 export default LoginModal;

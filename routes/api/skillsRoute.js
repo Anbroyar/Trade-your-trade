@@ -2,7 +2,6 @@ const router = require("express").Router();
 
 const skillsController = require("../../controllers/skillsController");
 
-
 // Matches with "/api/skills"
 router.route("/")
   .get(skillsController.findAll);

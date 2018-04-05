@@ -6,6 +6,7 @@ const mustBeLoggedIn = require('../mustBeLoggedIn');
 
 function getCurrentUser(req, res) {
   const { id, username } = req.user;
+  console.log("Logged in as ", username);
   res.json({
     id, username
   });

@@ -23,7 +23,7 @@ require('./passport')(app);
 
 app.use(routes);
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/trade_your_trade';
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
