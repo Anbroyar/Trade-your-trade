@@ -3,13 +3,23 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const WORK_FACTOR = 10;
 
+// const UserSchema = new Schema({
+//   username: {
+//     type: String,
+//     required: true,
+//     index: { unique: true }
+//   },
+//   password: {
+//     type: String
+//   }
+// });
 
 const UserSchema = new Schema ({
   username:{
     type: String,
     trim: true,
-    required: true,
-    index: { unique: true} 
+    required: true//,
+    // index: { unique: true} 
   },
   password: {
     type: String,
@@ -17,12 +27,12 @@ const UserSchema = new Schema ({
   },
   firstname: {
     type:String,
-    trim: true,
+    trim: true//,
     // required: true,
   },
   lastname: {
     type:String,
-    trim: true,
+    trim: true//,
     // required: true,
   },
   email: {
@@ -37,7 +47,7 @@ const UserSchema = new Schema ({
     trim: true
   },
   zipcode: {
-    type: Number,
+    type: Number//,
     // required: true
   },
   skills: {
@@ -49,6 +59,16 @@ const UserSchema = new Schema ({
     }
   }
 });
+
+// This pre "save" handler will be called before each time the user is saved.
+// it will convert the plaintext password into a securely hashed version so that
+// the original plaintext password is never stored in the database
+
+// NOTE: do NOT use an arrow function for the second argument
+// Mongoose passes in the instance being saved via "this",
+// but arrow functions preserve "this" as the bound context
+// if you use an arrow function, you'll get an error
+// "user.isModified is not a function"
 UserSchema.pre('save', function(next) {
   const user = this;
 
