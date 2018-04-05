@@ -52,7 +52,7 @@ class AbstractUserModalForm extends React.Component {
               <ModalHeader toggle={this.toggle}>
                   {this.headerText}
                   <br/>
-                  {this.state.errors && JSON.stringify(this.state.errors.message)}
+                  {this.state.errors && JSON.stringify(this.state.errors)}
               </ModalHeader>
               <ModalBody>
                   <div className="form-group">
@@ -76,9 +76,9 @@ class AbstractUserModalForm extends React.Component {
 }
 
 export class LoginModal extends AbstractUserModalForm {
-  url = '/api/users'
+  url = '/api/auth'
   headerText = 'Sign In'
-  toggleText = 'LOGIN'
+  toggleText = 'Login'
 }
 
 export class RegisterModal extends AbstractUserModalForm {

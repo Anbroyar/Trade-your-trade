@@ -12,7 +12,8 @@ const UserSchema = new Schema ({
     index: { unique: true} 
   },
   password: {
-    type: String
+    type: String,
+    required: true
   },
   firstname: {
     type:String,
@@ -26,12 +27,12 @@ const UserSchema = new Schema ({
   },
   email: {
     type: String,
-    unique: true,
+    // unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
   phonenumber:{
     type: String,
-    unique: true,
+    // unique: true,
     // required: true,
     trim: true
   },
