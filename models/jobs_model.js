@@ -3,16 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const jobsSchema = new Schema ({
-  jobname: {
+  jobName: {
     type: String,
     required: true
   },
-  jobtype: {
+  jobType: {
     type: Schema.Types.ObjectId,
     ref: 'Skills',
     required: true
   },
-  totalhours: {
+  totalHours: {
     type: Number
   },
   totalCost: {
@@ -21,16 +21,15 @@ const jobsSchema = new Schema ({
   userRequested: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    // required: true
   },
   userAssigned: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    // required: true
   },
   dateCompleted: {
     type: Date,
-    default: Date.now
   }
 });
 
