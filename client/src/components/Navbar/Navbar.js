@@ -10,6 +10,7 @@ import {
   NavLink
  } from 'reactstrap';
  import "./Navbar.css";
+ import LoginModal, {RegisterModal} from '../LoginModal'
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class MyNavbar extends React.Component {
       isOpen: false
     };
   }
+  
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -38,14 +40,17 @@ class MyNavbar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink id="navbar-text" href="/login">Login</NavLink>
+              <NavItem className="mr-1">
+                <LoginModal />
               </NavItem>
+              <NavItem>
+                  <RegisterModal />
+                </NavItem>
               <NavItem>
                 <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink id="navbar-text" href="">Search</NavLink>
+                <NavLink id="navbar-text" href="/SearchPage">Search</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

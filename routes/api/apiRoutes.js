@@ -1,10 +1,12 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
-const db = require('../models');
+const db = require('../../models');
+const mustBeLoggedIn = require('../mustBeLoggedIn');
 
-function getUser(req, res) {
+function getCurrentUser(req, res) {
   const { id, username } = req.user;
+  console.log("Logged in as ", username);
   res.json({
     id, username
   });
@@ -15,11 +17,11 @@ router.route('/auth')
   .get((req, res) => {
     if (!req.user) {
       return res.status(401).json({
-        message: 'You are not logged in.'
+        message: 'You are not currently logged in.'
       })
     }
 
-    getUser(req, res);
+    getCurrentUser(req, res);
   })
   // POST to /api/auth with username and password will authenticate the user
   .post(passport.authenticate('local'), (req, res) => {
@@ -29,7 +31,7 @@ router.route('/auth')
       })
     }
 
-    getUser(req, res);
+    getCurrentUser(req, res);
   })
   // DELETE to /api/auth will log the user out
   .delete((req, res) => {
@@ -51,17 +53,19 @@ router.route('/users')
         });
       })
       .catch(err => {
+        // if this error code is thrown, that means the username already exists.
+        // redirecting users back to the create screen
+        // with that flash message
         if (err.code === 11000) {
           res.status(400).json({
             message: 'Username already in use.'
           })
         }
+
+        // unexpected error, so we'll just send it off 
+        // to the next middleware to handle the error.
         next(err);
       });
   });
-router.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
-
 
 module.exports = router;
