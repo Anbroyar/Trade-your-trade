@@ -49,7 +49,7 @@ class MyNavbar extends React.Component {
     if (user) {
       return (<Fragment>
         <NavItem className="navbar-text">
-          <span>Welcome, {user.username}</span>
+          <span className="welcome-text">Welcome, {user.username}</span>
         </NavItem>
         <NavItem>
           <Button
