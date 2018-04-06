@@ -44,8 +44,8 @@ class MyNavbar extends React.Component {
                 <LoginModal />
               </NavItem>
               <NavItem>
-                  <RegisterModal />
-                </NavItem>
+                <RegisterModal />
+              </NavItem>
               <NavItem>
                 <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>

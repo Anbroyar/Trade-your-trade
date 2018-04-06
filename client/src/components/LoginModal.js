@@ -35,6 +35,17 @@ class AbstractUserModalForm extends React.Component {
     })
   })
 
+  // handleLogout = event => axios({
+  //   url: this.url,
+  //   method: 'delete',
+  // })
+  // .then(this.toggle)
+  // .catch((errorResponse) => {
+  //   this.setState({
+  //     errors: errorResponse.response.data
+  //   })
+  // })
+
 
   toggle = () => this.setState({
       modal: !this.state.modal
@@ -86,5 +97,11 @@ export class RegisterModal extends AbstractUserModalForm {
   headerText = 'Register'
   toggleText = 'Register'
 }
+
+// export class LogoutModal extends AbstractUserModalForm {
+//   url = '/api/auth'
+//   headerText = 'Sign Out'
+//   toggleText = 'Logout'
+// }
 
 export default LoginModal;

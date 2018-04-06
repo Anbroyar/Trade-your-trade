@@ -19,6 +19,10 @@ router.route('/auth')
       return res.status(401).json({
         message: 'You are not currently logged in.'
       })
+    } else {
+      return res.json({
+        toggleText: "Welcome " + req.user
+      })
     }
 
     getCurrentUser(req, res);
