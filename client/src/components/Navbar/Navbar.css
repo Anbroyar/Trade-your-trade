@@ -7,6 +7,7 @@
   color: #fff;
 }
 
-#navbar-text {
-	color: white;
+.navbar-text {
+	color: white !important;
+	vertical-align: middle;
 }
