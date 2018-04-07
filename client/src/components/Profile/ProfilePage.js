@@ -4,7 +4,8 @@ import AddSkill from './AddSkill.js';
 import { withUser, update } from '../../utils/withUser';
 
 const btnStyle = {
-    background: "#e56"
+    background: "#e56",
+    float: 'right'
 }
 
 class Profile extends React.Component {
@@ -54,7 +55,7 @@ class Profile extends React.Component {
                             </Card>
                         </div>
                         <div className="my-2">
-                            <Button style={{float: 'right'}} color="primary">Update</Button>{' '}
+                            <Button style={btnStyle}>Update</Button>{' '}
                         </div>
                     </Col>
                 </Row> 
