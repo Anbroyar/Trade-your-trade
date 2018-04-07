@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardText, CardBody, CardTitle} from 'reactstrap';
+import { Container, Row, Col, Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 
 export default class Profile extends React.Component {
@@ -7,20 +7,48 @@ export default class Profile extends React.Component {
         return (
             <Container>
                 <Row>
-                    <Col xs="12" md="9">
+                    <Col xs="12" md={{size: 10, offset: 1}}>
                         <Card>
                             <CardBody>
                                 <CardTitle>My Profile</CardTitle>
-                                <CardText>Photo URL: {this.props.userPhoto}</CardText>
-                                <CardText>Name: {this.props.firstname} {this.props.lastname}</CardText>
-                                <CardText>E-mail: {this.props.email}</CardText>
+                                <Form>
+                                    <FormGroup>
+                                        <Label for='userphoto'>Photo URL: </Label>
+                                        <Input type='url' name='userphoto' placeholder='this users photourl (this.props)' />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label for='firstname'>First Name: </Label>
+                                        <Input type='text' name='firstname' placeholder='this users firstname (this.props)' />
+                                    </FormGroup>
+                                    <FormGroup>    
+                                        <Label for='lastname'>Last Name: </Label>
+                                        <Input type='text' name='lastname' placeholder='this users lastname (this.props)' />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label for='email'>E-mail: </Label>
+                                        <Input type='text' name='email' placeholder='this users email (this.props)' />    
+                                    </FormGroup>
+                                </Form>
                             </CardBody>  
                         </Card>
                     </Col>
                 </Row>
-                <AddSkill />
-                <AddSkill />
-                <AddSkill />
+
+                <Row>
+                    <Col xs="12" md={{size: 10, offset: 1}}>
+                        <Card>
+                            <CardBody>
+                                <CardTitle>My Skills</CardTitle>
+
+                                <AddSkill />
+                                <AddSkill />
+                                <AddSkill />
+                            </CardBody>  
+                        </Card>
+                    </Col>
+                </Row>                    
+                <Button color="primary">Update</Button>{' '}
+
             </Container>
         )
     }

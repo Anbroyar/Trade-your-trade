@@ -24,7 +24,7 @@ export default class AddSkill extends React.Component{
                     <Col xs='12' m={{size: 7, offset: 1}}>
                         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <DropdownToggle caret>
-                                Dropdown
+                                My Skills
                             </DropdownToggle>
                             <DropdownMenu>
                                 {/* WE NEED TO MAP THE SKILLS FROM DB HERE */}
