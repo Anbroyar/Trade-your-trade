@@ -8,7 +8,7 @@ const btnStyle = {
 
 export default class AddSkill extends React.Component{
 
-    state: {
+    state = {
         skills: []
     }
 

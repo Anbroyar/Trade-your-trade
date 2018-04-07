@@ -1,6 +1,8 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 
+import './Carousel.css';
+
 import BACKGROUND from '../../images/BACKGROUND.jpg';
 import coder from '../../images/coder.jpg';
 import image106 from '../../images/image106.jpg';
@@ -11,7 +13,7 @@ import accountant from '../../images/accountant.jpg';
 const items = [
   {
     src: BACKGROUND,
-    altText: 'We provide skilled laborers with a platform to exchange services. People can negotiate the hourly value of their specific trade, in exchange for the comparable value of someone elses.Trade your trade is the best of capitalism, and the best of communism.',
+    altText: '',
     caption: ''
   },
   { 
