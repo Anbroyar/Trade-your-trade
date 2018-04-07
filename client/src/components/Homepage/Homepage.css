@@ -1,9 +1,9 @@
 .homepage-header {
 	margin: 10px;
 	text-align: center;
-	background-color: aqua;
+	height: 500px;
 }
 
 .homepage-wanted-ads {
-	margin-top: 30px;
+	margin-top: auto;
 }

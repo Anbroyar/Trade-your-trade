@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import WantedAd from '../WantedAd/WantedAd'
+import WantedAd from '../WantedAd/WantedAd';
 import './Homepage.css';
+import Carousel from '../Carousel/Carousel';
 
 
 
@@ -10,10 +11,7 @@ class Homepage extends Component {
       <div className="container-fluid">
       <div className="row homepage-header">
         <div className="col-sm-12">
-        <h1> What We Do</h1>
-        <h3> We provide skilled laborers with a platform to exchange services.
-        People can negotiate the hourly value of their specific trade, in exchange for the comparable value of someone elses.
-        Trade your trade is the best of capitalism, and the best of communism.</h3>
+          <Carousel />
         </div>
         </div>
 

@@ -3,6 +3,10 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './HelpWanted.css';
 import axios from 'axios';
 
+const btnStyle = {
+    background: "#e56"
+}
+
 class HelpWanted extends Component {
 
 	constructor(props){
@@ -67,9 +71,10 @@ class HelpWanted extends Component {
 	        	</Input>
 						</FormGroup>
 						<Button 
-								onClick={this.handleSubmit} 
-								className="create-ad"
-							>
+							style={btnStyle}
+							onClick={this.handleSubmit} 
+							className="create-ad"
+						>
 								Create Ad
 							</Button>
 	      </Form>

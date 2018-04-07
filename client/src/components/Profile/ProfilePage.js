@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
+import { withUser, update } from '../../utils/withUser';
 
 
 export default class Profile extends React.Component {
@@ -42,6 +43,7 @@ export default class Profile extends React.Component {
     }
     
     
+
     render() {
         return (
             <Container>
@@ -87,15 +89,20 @@ export default class Profile extends React.Component {
 
                 <Row>
                     <Col xs="12" md={{size: 10, offset: 1}}>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>My Skills</CardTitle>
+                        <div>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle>My Skills</CardTitle>
 
-                                <AddSkill />
-                                <AddSkill />
-                                <AddSkill />
-                            </CardBody>  
-                        </Card>
+                                    <AddSkill />
+                                    <AddSkill />
+                                    <AddSkill />
+                                </CardBody>  
+                            </Card>
+                        </div>
+                        <div className="my-2">
+                            <Button style={btnStyle}>Update</Button>{' '}
+                        </div>
                     </Col>
                 </Row>        
 
@@ -103,7 +110,10 @@ export default class Profile extends React.Component {
                         onClick={() => this.updateUser(this.state.form)}>
                     Update
                 </Button>{' '}
+
             </Container>
         )
     }
 }
+
+export default withUser(Profile);

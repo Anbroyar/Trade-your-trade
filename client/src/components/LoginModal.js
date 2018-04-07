@@ -6,6 +6,10 @@ import { update } from '../utils/withUser';
 import "./Navbar";
 import ApiContext from './ApiContext';
 
+const btnStyle = {
+    background: "#e56"
+}
+
 class AbstractUserModalForm extends React.Component {
 
   toggleText = null
@@ -48,7 +52,7 @@ class AbstractUserModalForm extends React.Component {
   render() {
     return (
       <div>
-          <span className="navbar-text" color="danger" onClick={this.toggle}>
+          <span className="navbar-text" onClick={this.toggle}>
               {this.props.buttonLabel}
               {this.toggleText}
           </span>

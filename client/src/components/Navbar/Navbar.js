@@ -56,6 +56,7 @@ class MyNavbar extends React.Component {
           </NavItem>
         </Fragment>
       );
+
     } else {
       return (
         <Fragment>
@@ -79,7 +80,6 @@ class MyNavbar extends React.Component {
           <NavbarBrand className="navbar-title navbar-text" onClick={this.homeClicked}>Trade Your Trade</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-           
               <ApiContext.Consumer>
                 {(globalState) => {
                   // Subscribes to globalState.user property to conditional render navlinks for
