@@ -1,8 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
+import { withUser, update } from '../../utils/withUser';
 
-export default class Profile extends React.Component {
+const btnStyle = {
+    background: "#e56"
+}
+
+class Profile extends React.Component {
+
     render() {
         return (
             <Container>
@@ -47,9 +53,11 @@ export default class Profile extends React.Component {
                         </Card>
                     </Col>
                 </Row>                    
-                <Button color="primary">Update</Button>{' '}
+                <Button style={btnStyle}>Update</Button>{' '}
 
             </Container>
         )
     }
 }
+
+export default withUser(Profile);

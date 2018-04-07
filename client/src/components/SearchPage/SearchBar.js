@@ -2,6 +2,10 @@ import axios from "axios";
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+const btnStyle = {
+    background: "#e56"
+}
+
 export default class Example extends React.Component {
 
   state = {
@@ -48,7 +52,7 @@ export default class Example extends React.Component {
           <Label for="skillSearch">Search For A Job</Label>
           <Input type="text" name="skillSearch" id="skillSearch" placeholder="with a placeholder" />
         </FormGroup>
-        <Button onClick={this.handleSubmit}>Submit</Button>
+        <Button style={btnStyle} onClick={this.handleSubmit}>Submit</Button>
       </Form>
     );
   }

@@ -2,6 +2,10 @@ import React from 'react';
 import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import axios from "axios";
 
+const btnStyle = {
+    background: "#e56"
+}
+
 export default class AddSkill extends React.Component{
 
     state: {
@@ -35,7 +39,7 @@ export default class AddSkill extends React.Component{
                 <Row>
                     <Col xs='12' m={{size: 7, offset: 1}}>
                         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            <DropdownToggle caret>
+                            <DropdownToggle caret style={btnStyle}>
                                 My Skills
                             </DropdownToggle>
                             <DropdownMenu>
