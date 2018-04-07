@@ -1,7 +1,9 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
   Collapse,
+  Button,
   Navbar,
   NavbarToggler,
   NavbarBrand,
@@ -11,6 +13,7 @@ import {
  } from 'reactstrap';
  import "./Navbar.css";
  import LoginModal, {RegisterModal} from '../LoginModal'
+ import { withUser, update } from '../../utils/withUser';
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -32,6 +35,44 @@ class MyNavbar extends React.Component {
     this.props.history.push("/")
   }
 
+  handleLogout = event => {
+    axios({
+      url: '/api/auth',
+      method: 'delete',
+    })
+    .then(() => update(null));
+  }
+
+  renderPresence() {
+    const { user } = this.props;
+
+    if (user) {
+      return (<Fragment>
+        <NavItem className="navbar-text">
+          <span className="welcome-text">Welcome, {user.username}</span>
+        </NavItem>
+        <NavItem>
+          <Button
+            color="danger"
+            onClick={this.handleLogout}
+          >
+            Log Out
+          </Button>
+        </NavItem>
+      </Fragment>);
+    } else {
+      return (<Fragment>
+        <NavItem className="mr-1">
+          <LoginModal />
+        </NavItem>
+        <NavItem>
+          <RegisterModal />
+        </NavItem>
+      </Fragment>);
+    }
+  }
+
+
   render() {
     return (
       <div className="navbar-main">
@@ -40,17 +81,12 @@ class MyNavbar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem className="mr-1">
-                <LoginModal />
+              {this.renderPresence()}
+              <NavItem>
+                <NavLink className="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>
               <NavItem>
-                  <RegisterModal />
-                </NavItem>
-              <NavItem>
-                <NavLink id="navbar-text" href="/helpwanted">Help Wanted</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink id="navbar-text" href="/SearchPage">Search</NavLink>
+                <NavLink className="navbar-text" href="/SearchPage">Search</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -60,4 +96,4 @@ class MyNavbar extends React.Component {
   }
 }
 
-export default withRouter(MyNavbar);
+export default withRouter(withUser(MyNavbar));

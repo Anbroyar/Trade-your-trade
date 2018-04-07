@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
+import { update } from '../utils/withUser';
 
 class AbstractUserModalForm extends React.Component {
 
@@ -35,10 +36,12 @@ class AbstractUserModalForm extends React.Component {
     })
   })
 
-
-  toggle = () => this.setState({
-      modal: !this.state.modal
-  })
+  toggle = (result) => {
+    this.setState({
+        modal: !this.state.modal
+    });
+    update(result.data);
+  }
   
 
   render() {
@@ -86,5 +89,11 @@ export class RegisterModal extends AbstractUserModalForm {
   headerText = 'Register'
   toggleText = 'Register'
 }
+
+// export class LogoutModal extends AbstractUserModalForm {
+//   url = '/api/auth'
+//   headerText = 'Sign Out'
+//   toggleText = 'Logout'
+// }
 
 export default LoginModal;
