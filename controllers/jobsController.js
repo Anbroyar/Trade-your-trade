@@ -17,16 +17,17 @@ module.exports = {
   },
   create: function(req, res) {
     const job = {
-      _id: req.body._id,
-      name: req.body.jobname,
-      type: req.body.jobtype,
-      hours: req.body.totalhours,
-      cost: req.body.totalCost
+      jobName: req.body.jobName,
+      jobType: req.body.jobType,
+      totalHours: req.body.totalHours,
+      totalCost: req.body.totalCost
     };
     db.Jobs
       .create(job)
       .then(dbJobs => res.json(dbJobs))
-      .catch(err => res.status(422).json(err));
+      .catch(err => { 
+        res.status(422).json(err);
+      });
   },
   update: function(req, res) {
     db.Jobs
