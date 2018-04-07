@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Media, Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
-import zipcodes from 'zipcodes';
+import { Container, Row, Col, Card, CardText, CardBody, CardTitle} from 'reactstrap';
 import AddSkill from './AddSkill.js';
 
 export default class Profile extends React.Component {
@@ -16,7 +14,6 @@ export default class Profile extends React.Component {
                                 <CardText>Photo URL: {this.props.userPhoto}</CardText>
                                 <CardText>Name: {this.props.firstname} {this.props.lastname}</CardText>
                                 <CardText>E-mail: {this.props.email}</CardText>
-                                {/* <CardText>ZIP Code: {this.props.zipcode}</CardText> */}
                             </CardBody>  
                         </Card>
                     </Col>

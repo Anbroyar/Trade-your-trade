@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import axios from 'axios'
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './HelpWanted.css';
+import axios from 'axios';
 
 class HelpWanted extends Component {
 

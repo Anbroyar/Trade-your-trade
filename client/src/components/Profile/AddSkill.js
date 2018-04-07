@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card, toggle, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 export default class AddSkill extends React.Component{
     constructor(props) {

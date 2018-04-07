@@ -1,6 +1,5 @@
 import React from 'react';
-import { Media, Container, Row, Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
-import zipcodes from 'zipcodes';
+import { Container, Row, Col, Card, CardText, CardBody } from 'reactstrap';
 
 export default class Profile extends React.Component {
     render() {

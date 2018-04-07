@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import HelpWanted from './components/HelpWanted';
