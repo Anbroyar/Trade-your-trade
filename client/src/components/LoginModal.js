@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
 import { update } from '../utils/withUser';
+import "./Navbar";
 
 class AbstractUserModalForm extends React.Component {
 
@@ -47,10 +48,10 @@ class AbstractUserModalForm extends React.Component {
   render() {
     return (
       <div>
-          <Button color="danger" onClick={this.toggle}>
+          <span className="navbar-text" color="danger" onClick={this.toggle}>
               {this.props.buttonLabel}
               {this.toggleText}
-          </Button>
+          </span>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalHeader toggle={this.toggle}>
                   {this.headerText}

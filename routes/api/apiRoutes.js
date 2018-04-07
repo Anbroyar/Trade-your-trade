@@ -46,26 +46,29 @@ router.route('/users')
   // POST to /api/users will create a new user
   .post((req, res, next) => {
     db.User.create(req.body)
-      .then(user => {
-        const { id, username } = user;
-        res.json({
-          id, username
-        });
+  .then(user => {
+    const { id, username } = user;
+    res.json({
+      id, username
+    });
+  })
+  .put((req, res) => {
+    db.User.update(req.body)
+  })
+  .catch(err => {
+    // if this error code is thrown, that means the username already exists.
+    // redirecting users back to the create screen
+    // with that flash message
+    if (err.code === 11000) {
+      res.status(400).json({
+        message: 'Username already in use.'
       })
-      .catch(err => {
-        // if this error code is thrown, that means the username already exists.
-        // redirecting users back to the create screen
-        // with that flash message
-        if (err.code === 11000) {
-          res.status(400).json({
-            message: 'Username already in use.'
-          })
-        }
+    }
 
-        // unexpected error, so we'll just send it off 
-        // to the next middleware to handle the error.
-        next(err);
-      });
+    // unexpected error, so we'll just send it off 
+    // to the next middleware to handle the error.
+    next(err);
   });
+});
 
 module.exports = router;
