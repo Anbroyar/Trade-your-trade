@@ -54,6 +54,9 @@ class MyNavbar extends React.Component {
         <NavItem className="navbar-text" onClick={this.handleLogout}>
             Log Out
         </NavItem>
+        <NavItem>
+          <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">Profile</NavLink>
+        </NavItem>
       </Fragment>);
     } else {
       return (<Fragment>
@@ -85,9 +88,7 @@ class MyNavbar extends React.Component {
                   Search
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">Profile</NavLink>
-              </NavItem>
+              
             </Nav>
           </Collapse>
         </Navbar>
