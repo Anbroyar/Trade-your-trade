@@ -39,7 +39,7 @@ export default class AddSkill extends React.Component{
                 <Row>
                     <Col xs='12' m={{size: 7, offset: 1}}>
                         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            <DropdownToggle caret>
+                            <DropdownToggle caret style={btnStyle}>
                                 My Skills
                             </DropdownToggle>
                             <DropdownMenu>

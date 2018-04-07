@@ -5,6 +5,10 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from
 import { update } from '../utils/withUser';
 import "./Navbar";
 
+const btnStyle = {
+    background: "#e56"
+}
+
 class AbstractUserModalForm extends React.Component {
 
   toggleText = null
@@ -48,7 +52,7 @@ class AbstractUserModalForm extends React.Component {
   render() {
     return (
       <div>
-          <span className="navbar-text" color="danger" onClick={this.toggle}>
+          <span className="navbar-text" onClick={this.toggle}>
               {this.props.buttonLabel}
               {this.toggleText}
           </span>
@@ -69,7 +73,7 @@ class AbstractUserModalForm extends React.Component {
                   </div>
               </ModalBody>
               <ModalFooter>
-                  <Button color="primary" onClick={this.submit}>
+                  <Button style={btnStyle} onClick={this.submit}>
                       Submit
                   </Button>
               </ModalFooter>

@@ -7,8 +7,6 @@ const btnStyle = {
     background: "#e56"
 }
 
-const { _id, user } = this.props;
-
 class Profile extends React.Component {
 
     render() {
