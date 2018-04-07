@@ -88,6 +88,9 @@ class MyNavbar extends React.Component {
               <NavItem>
                 <NavLink className="navbar-text" href="/SearchPage">Search</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">Profile</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
