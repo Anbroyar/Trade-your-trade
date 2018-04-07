@@ -83,10 +83,18 @@ class MyNavbar extends React.Component {
             <Nav className="ml-auto" navbar>
               {this.renderPresence()}
               <NavItem>
-                <NavLink className="navbar-text" href="/helpwanted">Help Wanted</NavLink>
+                <NavLink className="navbar-text" href="/helpwanted">
+                  <Button color="danger">
+                    Help Wanted
+                  </Button>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="navbar-text" href="/SearchPage">Search</NavLink>
+                <NavLink className="navbar-text" href="/SearchPage">
+                  <Button color="danger">
+                    Search
+                  </Button>
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
