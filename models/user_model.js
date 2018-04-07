@@ -3,17 +3,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const WORK_FACTOR = 10;
 
-// const UserSchema = new Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     index: { unique: true }
-//   },
-//   password: {
-//     type: String
-//   }
-// });
-
 const UserSchema = new Schema ({
   username:{
     type: String,

@@ -10,6 +10,11 @@
 .navbar-text {
 	color: white !important;
 	vertical-align: middle;
+	margin: 0px 10px 0px 10px;
+}
+
+.navbar-text:hover {
+	cursor: pointer;
 }
 
 .welcome-text {

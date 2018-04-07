@@ -51,13 +51,8 @@ class MyNavbar extends React.Component {
         <NavItem className="navbar-text">
           <span className="welcome-text">Welcome, {user.username}</span>
         </NavItem>
-        <NavItem>
-          <Button
-            color="danger"
-            onClick={this.handleLogout}
-          >
+        <NavItem className="navbar-text" onClick={this.handleLogout}>
             Log Out
-          </Button>
         </NavItem>
       </Fragment>);
     } else {
