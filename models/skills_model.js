@@ -11,10 +11,9 @@ const Skill = mongoose.model("Skill", skillsSchema);
 module.exports = Skill;
 
 Skill.seeds = () => {
-  Skills.create([
+  Skill.create([
     {name: 'DJ'},
     {name: 'Carpenter'},
     {name: 'The Dude'}
   ])
 };
-
