@@ -36,19 +36,22 @@ export default class Profile extends React.Component {
 
                 <Row>
                     <Col xs="12" md={{size: 10, offset: 1}}>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>My Skills</CardTitle>
+                        <div>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle>My Skills</CardTitle>
 
-                                <AddSkill />
-                                <AddSkill />
-                                <AddSkill />
-                            </CardBody>  
-                        </Card>
+                                    <AddSkill />
+                                    <AddSkill />
+                                    <AddSkill />
+                                </CardBody>  
+                            </Card>
+                        </div>
+                        <div className="my-2">
+                            <Button style={{float: 'right'}} color="primary">Update</Button>{' '}
+                        </div>
                     </Col>
                 </Row>                    
-                <Button color="primary">Update</Button>{' '}
-
             </Container>
         )
     }
