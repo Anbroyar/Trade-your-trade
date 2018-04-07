@@ -4,6 +4,7 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
 import { update } from '../utils/withUser';
 import "./Navbar";
+import ApiContext from './ApiContext';
 
 class AbstractUserModalForm extends React.Component {
 
@@ -22,29 +23,28 @@ class AbstractUserModalForm extends React.Component {
     errors: null
   })
 
-  submit = event => axios({
-      url: this.url, 
-      method: 'post',
-      data: {
-        username: this.state.username,
-        password: this.state.password
-      }
+  handleSubmit = (apiSubmit) => apiSubmit({
+    username: this.state.username,
+    password: this.state.password
   })
-  .then(this.toggle)
-  .catch((errorResponse) => {
-    this.setState({
-      errors: errorResponse.response.data
-    })
-  })
+        .then(this.toggle)
+        .catch((errorResponse) => {
+            debugger;
+            console.log(errorResponse)
+            this.setState({
+                errors: errorResponse.response.data
+            })
+        })
 
   toggle = (result) => {
     this.setState({
         modal: !this.state.modal
     });
-    update(result.data);
+
+    if(result && result.data)
+        update(result.data);
   }
   
-
   render() {
     return (
       <div>
@@ -69,24 +69,34 @@ class AbstractUserModalForm extends React.Component {
                   </div>
               </ModalBody>
               <ModalFooter>
-                  <Button color="primary" onClick={this.submit}>
-                      Submit
-                  </Button>
+                    <ApiContext.Consumer>
+                        {/* Grabs the proper api function to submit user data for login/register */}
+                        {(globalState) =>  {
+                                const submitFn = globalState[this.globalFunctionName];
+                                return (
+                                    <Button 
+                                        color="primary" 
+                                        onClick={() =>this.handleSubmit(submitFn)}>
+                                        Submit
+                                    </Button>
+                                )
+                        }}
+                    </ApiContext.Consumer>
               </ModalFooter>
           </Modal>
       </div>
-      );
+    );
   }
 }
 
 export class LoginModal extends AbstractUserModalForm {
-  url = '/api/auth'
+  globalFunctionName = "loginAndSetUser"
   headerText = 'Sign In'
   toggleText = 'Login'
 }
 
 export class RegisterModal extends AbstractUserModalForm {
-  url = '/api/users'
+  globalFunctionName = 'registerAndSetUser'
   headerText = 'Register'
   toggleText = 'Register'
 }
