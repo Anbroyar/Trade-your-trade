@@ -2,6 +2,10 @@ import React from 'react';
 import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import axios from "axios";
 
+const btnStyle = {
+    background: "#e56"
+}
+
 export default class AddSkill extends React.Component{
 
     state: {
