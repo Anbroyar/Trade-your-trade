@@ -51,13 +51,8 @@ class MyNavbar extends React.Component {
         <NavItem className="navbar-text">
           <span className="welcome-text">Welcome, {user.username}</span>
         </NavItem>
-        <NavItem>
-          <Button
-            color="danger"
-            onClick={this.handleLogout}
-          >
+        <NavItem className="navbar-text" onClick={this.handleLogout}>
             Log Out
-          </Button>
         </NavItem>
       </Fragment>);
     } else {
@@ -86,7 +81,12 @@ class MyNavbar extends React.Component {
                 <NavLink className="navbar-text" href="/helpwanted">Help Wanted</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="navbar-text" href="/SearchPage">Search</NavLink>
+                <NavLink className="navbar-text" href="/SearchPage">
+                  Search
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">Profile</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

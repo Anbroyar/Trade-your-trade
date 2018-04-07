@@ -4,7 +4,8 @@ const skillsController = require("../../controllers/skillsController");
 
 // Matches with "/api/skills"
 router.route("/")
-  .get(skillsController.findAll);
+  .get(skillsController.findAll)
+  .post(skillsController.createOne);
 
 // Matches with "/api/skills/:id"
 router

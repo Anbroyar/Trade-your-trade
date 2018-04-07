@@ -3,23 +3,12 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const WORK_FACTOR = 10;
 
-// const UserSchema = new Schema({
-//   username: {
-//     type: String,
-//     required: true,
-//     index: { unique: true }
-//   },
-//   password: {
-//     type: String
-//   }
-// });
-
 const UserSchema = new Schema ({
   username:{
     type: String,
     trim: true,
-    required: true//,
-    // index: { unique: true} 
+    required: true,
+    index: { unique: true} 
   },
   password: {
     type: String,
@@ -51,7 +40,7 @@ const UserSchema = new Schema ({
     // required: true
   },
   skills: {
-    type: [{type: Schema.Types.ObjectId, ref: 'Skills'}],
+    type: [{type: Schema.Types.ObjectId, ref: 'Skill'}],  // might need to be ref: 'Skills'
     validate: {
       validator: function(value){
         return value.length <= 3;

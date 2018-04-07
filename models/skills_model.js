@@ -6,9 +6,9 @@ const skillsSchema = new Schema ({
   name: String
 });
 
-const Skills = mongoose.model("Skills", skillsSchema);
+const Skill = mongoose.model("Skill", skillsSchema);
 
-module.exports = Skills;
+module.exports = Skill;
 
 Skills.seeds = () => {
   Skills.create([
@@ -17,3 +17,4 @@ Skills.seeds = () => {
     {name: 'The Dude'}
   ])
 };
+>>>>>>> bca512a65b8faf21964ff46a67c24a67a28cb043

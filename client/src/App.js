@@ -5,6 +5,7 @@ import HelpWanted from './components/HelpWanted';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile/ProfilePage';
 import SearchPage from './components/SearchPage/SearchPage';
+import ProfilePage from './components/Profile/ProfilePage';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/helpwanted" component={HelpWanted} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/searchpage" component={SearchPage} />
+            <Route exact path="/profilepage" component={ProfilePage} />
           </Switch>
           </Fragment> 
         </Router>
