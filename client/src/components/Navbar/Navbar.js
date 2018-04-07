@@ -88,7 +88,6 @@ class MyNavbar extends React.Component {
                   Search
                 </NavLink>
               </NavItem>
-              
             </Nav>
           </Collapse>
         </Navbar>

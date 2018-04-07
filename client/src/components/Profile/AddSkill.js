@@ -1,7 +1,13 @@
 import React from 'react';
 import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import axios from "axios";
 
 export default class AddSkill extends React.Component{
+
+    state: {
+        skills: []
+    }
+
     constructor(props) {
         super(props);
     
@@ -9,13 +15,19 @@ export default class AddSkill extends React.Component{
         this.state = {
           dropdownOpen: false
         };
-      }
+    }
     
-      toggle() {
+    toggle() {
         this.setState({
           dropdownOpen: !this.state.dropdownOpen
         });
-      }    
+    }
+
+    componentDidMount() {
+        axios.get('/skills')
+            .then(res => this.setState({skills: res.data}))
+            .catch(err => console.log('oh boi', err))
+    }
     
     render() {
         return(
