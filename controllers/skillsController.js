@@ -27,5 +27,11 @@ module.exports = {
       .then(dbSkills => dbSkills.remove())
       .then(dbSkills => res.json(dbSkills))
       .catch(err => res.status(422).json(err));
+  },
+  createOne: function(req, res) {
+    db.Skills
+      .create(req.body)
+      .then(dbSkills => res.json(dbSkills))
+      .catch(err => res.status(422).json(err));
   }
 };
