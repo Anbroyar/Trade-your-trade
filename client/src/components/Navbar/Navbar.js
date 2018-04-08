@@ -14,6 +14,7 @@ import {
  import "./Navbar.css";
  import LoginModal, {RegisterModal} from '../LoginModal'
  import { withUser, update } from '../../utils/withUser';
+ import ApiContext from '../ApiContext'
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -40,35 +41,39 @@ class MyNavbar extends React.Component {
       url: '/api/auth',
       method: 'delete',
     })
-    .then(() => update(null));
+    // .then(() => update(null));
+    .then(() => this.setState({
+      user: null
+    }))
   }
 
-  renderPresence() {
-    const { user } = this.props;
-
+  renderPresence(user) {
     if (user) {
-      return (<Fragment>
-        <NavItem className="navbar-text">
-          <span className="welcome-text">Welcome, {user.username}</span>
-        </NavItem>
-        <NavItem className="navbar-text" onClick={this.handleLogout}>
-            Log Out
-        </NavItem>
-        <NavItem>
-          <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">Profile</NavLink>
-        </NavItem>
-      </Fragment>);
+      return (
+        <Fragment>
+          <NavItem className="navbar-text">
+            <span className="welcome-text">Welcome, {user.username}</span>
+          </NavItem>
+          <NavItem className="navbar-text clickable" onClick={this.handleLogout}>
+              Log Out
+          </NavItem>
+        </Fragment>
+      );
+
     } else {
-      return (<Fragment>
-        <NavItem className="mr-1">
-          <LoginModal />
-        </NavItem>
-        <NavItem>
-          <RegisterModal />
-        </NavItem>
-      </Fragment>);
+      return (
+        <Fragment>
+          <NavItem className="mr-1 clickable">
+            <LoginModal />
+          </NavItem>
+          <NavItem className="mr-1 clickable">
+            <RegisterModal />
+          </NavItem>
+        </Fragment>
+      );
     }
   }
+
 
 
   render() {
@@ -78,17 +83,35 @@ class MyNavbar extends React.Component {
           <NavbarBrand className="navbar-title navbar-text" onClick={this.homeClicked}>Trade Your Trade</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              {this.renderPresence()}
-              <NavItem>
-                <NavLink className="navbar-text" href="/helpwanted">Help Wanted</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="navbar-text" href="/SearchPage">
-                  Search
-                </NavLink>
-              </NavItem>
-            </Nav>
+              <ApiContext.Consumer>
+                {(globalState) => {
+                  // Subscribes to globalState.user property to conditional render navlinks for
+                  //  {login,register,profile}
+                  const {user} = globalState;
+                  return (
+                    <Nav className="ml-auto" navbar>
+                      {this.renderPresence(user)}
+                      <NavItem>
+                        <NavLink className="navbar-text clickable" href="/helpwanted">
+                          Help Wanted
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink className="navbar-text clickable" href="/SearchPage">
+                            Search
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        {user && 
+                          <NavLink className="navbar-text" id="navbar-text clickable" href="/ProfilePage">
+                            Profile
+                          </NavLink>
+                        }
+                      </NavItem>
+                    </Nav>
+                  )
+                }}
+              </ApiContext.Consumer>
           </Collapse>
         </Navbar>
       </div>
@@ -96,4 +119,4 @@ class MyNavbar extends React.Component {
   }
 }
 
-export default withRouter(withUser(MyNavbar));
+export default withRouter(MyNavbar);
