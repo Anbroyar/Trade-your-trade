@@ -41,10 +41,9 @@ class MyNavbar extends React.Component {
       url: '/api/auth',
       method: 'delete',
     })
-    // .then(() => update(null));
-    .then(() => this.setState({
-      user: null
-    }))
+    .then(() => update(null))
+    // .then(() => ApiContext.user = null)
+    // .then(Location.reload())
   }
 
   renderPresence(user) {
