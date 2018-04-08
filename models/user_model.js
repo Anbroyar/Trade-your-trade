@@ -29,6 +29,9 @@ const UserSchema = new Schema ({
     // unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
+  userphoto: {
+    type: String
+  },
   phonenumber:{
     type: String,
     // unique: true,

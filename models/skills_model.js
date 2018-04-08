@@ -6,9 +6,9 @@ const skillsSchema = new Schema ({
   name: String
 });
 
-const Skill = mongoose.model("Skill", skillsSchema);
+const Skills = mongoose.model("Skill", skillsSchema);
 
-module.exports = Skill;
+module.exports = Skills;
 
 Skill.seeds = () => {
   Skill.create([
