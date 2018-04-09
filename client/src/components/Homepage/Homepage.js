@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import WantedAd from '../WantedAd/WantedAd'
 import './Homepage.css';
 
-
+// const adsStyle = {
+//   height: '200px',
+// }
 
 class Homepage extends Component {
   render() {
