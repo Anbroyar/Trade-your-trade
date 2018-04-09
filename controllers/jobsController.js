@@ -9,6 +9,13 @@ module.exports = {
       .then(dbJobs => res.json(dbJobs))
       .catch(err => res.status(422).json(err));
   },
+  findBySkillId(req, res) {
+    db.Jobs
+      .find({
+        jobType: req.body.jobType
+      })
+      
+  },
   findById: function(req, res) {
     db.Jobs
       .findById(req.params.id)
