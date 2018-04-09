@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
   Collapse,
-  Button,
   Navbar,
   NavbarToggler,
   NavbarBrand,
@@ -97,7 +96,7 @@ class MyNavbar extends React.Component {
                       </NavItem>
                       <NavItem>
                         <NavLink className="navbar-text clickable" href="/SearchPage">
-                            Search
+                          Search
                         </NavLink>
                       </NavItem>
                       <NavItem>

@@ -1,13 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
 import { withUser, update } from '../../utils/withUser';
 
-const btnStyle = {
-    background: "#e56",
-    float: 'right'
-}
 
 // export default withUser(Profile); add this to bottom if not using global state
 
@@ -81,11 +77,21 @@ export default class Profile extends React.Component {
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
-                                        <Input type='text' name='lastname' placeholder='this users lastname (this.props)' />
+                                        <Input type='text' 
+                                        name='lastname'
+                                        onChange={this.handleChange}
+                                        value={this.state.form.lastname || ''}
+                                        //  placeholder='this users lastname (this.props)' 
+                                         />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='email'>E-mail: </Label>
-                                        <Input type='text' name='email' placeholder='this users email (this.props)' />    
+                                        <Input type='text' 
+                                        name='email'
+                                        onChange={this.handleChange}
+                                        value={this.state.form.email || ''} 
+                                        // placeholder='this users email (this.props)' 
+                                        />    
                                     </FormGroup>
                                 </Form>
                             </CardBody>  
@@ -106,9 +112,9 @@ export default class Profile extends React.Component {
                                 </CardBody>  
                             </Card>
                         </div>
-                        <div className="my-2">
-                            <Button style={btnStyle}>Update</Button>{' '}
-                        </div>
+                        {/* <div className="my-2">
+                            <Button>Update</Button>{' '}
+                        </div> */}
                     </Col>
                 </Row>        
 

@@ -10,8 +10,13 @@ import axios from 'axios';
 import {ApiContext} from './components/ApiContext';
 
 
+<<<<<<< HEAD
 class App extends Component {
 
+=======
+
+export default class App extends Component {  
+>>>>>>> 27a49c59622b6e450352f2bed1b721db4763c446
   constructor(props) {
     super(props);
 
@@ -87,5 +92,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

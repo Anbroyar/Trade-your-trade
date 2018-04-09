@@ -19,9 +19,8 @@ function getCurrentUser(req, res) {
   const { id, username } = req.user;
   console.log("Logged in as ", username);
   db.User.findById(id).then(user => {
-    const userJSON = user2json(user);
     res.json({
-      userJSON,
+      ...user2json(user),
       id,
       username
     });
@@ -94,6 +93,5 @@ router.route('/users')
       .then(user => res.json(user2json(user)))
       .catch(error => res.status(400).json(error))
   })
-
 
 module.exports = router;
