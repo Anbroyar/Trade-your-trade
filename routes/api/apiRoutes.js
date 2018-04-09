@@ -6,12 +6,12 @@ const mustBeLoggedIn = require('../mustBeLoggedIn');
 
 function user2json(user) {
   return {
-    firstname: user.firstname,
-    lastname: user.lastname,
-    phonenumber: user.phonenumber,
-    userphoto: user.userphoto,
-    skills: user.skills,
-    email: user.emails,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      phonenumber: user.phonenumber,
+      userphoto: user.userphoto,
+      skills: user.skills,
+      email: user.emails,
   }
 }
 
@@ -19,6 +19,7 @@ function getCurrentUser(req, res) {
   const { id, username } = req.user;
   console.log("Logged in as ", username);
   db.User.findById(id).then(user => {
+
     res.json({
       ...user2json(user),
       id,
