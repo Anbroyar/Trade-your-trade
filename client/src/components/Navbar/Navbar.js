@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
   Collapse,
-  Button,
   Navbar,
   NavbarToggler,
   NavbarBrand,
