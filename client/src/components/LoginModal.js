@@ -1,5 +1,4 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
-import axios from 'axios';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
 import { update } from '../utils/withUser';

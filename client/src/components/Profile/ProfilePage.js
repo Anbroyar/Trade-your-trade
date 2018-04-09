@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
 
