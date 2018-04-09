@@ -11,7 +11,7 @@ import {ApiContext} from './components/ApiContext';
 
 
 
-class App extends Component {  
+export default class App extends Component {  
   constructor(props) {
     super(props);
 
@@ -87,5 +87,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
