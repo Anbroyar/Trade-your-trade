@@ -62,7 +62,7 @@ export default class Profile extends React.Component {
                                             name='userphoto' 
                                             onChange={this.handleChange}
                                             value={this.state.form.userphoto || ''}
-                                            placeholder='this users photourl (this.props)'
+                                            // placeholder='this users photourl (this.props)'
                                         />
                                     </FormGroup>
                                     <FormGroup>
@@ -71,15 +71,26 @@ export default class Profile extends React.Component {
                                             name='firstname'
                                             onChange={this.handleChange}
                                             value={this.state.form.firstname || ''} 
-                                            placeholder='this users firstname (this.props)' />
+                                            // placeholder='this users firstname (this.props)' 
+                                            />
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
-                                        <Input type='text' name='lastname' placeholder='this users lastname (this.props)' />
+                                        <Input type='text' 
+                                        name='lastname'
+                                        onChange={this.handleChange}
+                                        value={this.state.form.lastname || ''}
+                                        //  placeholder='this users lastname (this.props)' 
+                                         />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='email'>E-mail: </Label>
-                                        <Input type='text' name='email' placeholder='this users email (this.props)' />    
+                                        <Input type='text' 
+                                        name='email'
+                                        onChange={this.handleChange}
+                                        value={this.state.form.email || ''} 
+                                        // placeholder='this users email (this.props)' 
+                                        />    
                                     </FormGroup>
                                 </Form>
                             </CardBody>  
@@ -100,9 +111,9 @@ export default class Profile extends React.Component {
                                 </CardBody>  
                             </Card>
                         </div>
-                        <div className="my-2">
-                            <Button style={btnStyle}>Update</Button>{' '}
-                        </div>
+                        {/* <div className="my-2">
+                            <Button>Update</Button>{' '}
+                        </div> */}
                     </Col>
                 </Row>        
 
@@ -115,5 +126,3 @@ export default class Profile extends React.Component {
         )
     }
 }
-
-export default withUser(Profile);
