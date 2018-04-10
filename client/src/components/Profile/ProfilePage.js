@@ -4,6 +4,8 @@ import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
 
 
+// export default withUser(Profile); add this to bottom if not using global state
+
 export default class Profile extends React.Component {
 
     state = {
@@ -61,7 +63,7 @@ export default class Profile extends React.Component {
                                             name='userphoto' 
                                             onChange={this.handleChange}
                                             value={this.state.form.userphoto || ''}
-                                            // placeholder='this users photourl (this.props)'
+                                            placeholder='this users photourl (this.props)'
                                         />
                                     </FormGroup>
                                     <FormGroup>
@@ -70,8 +72,7 @@ export default class Profile extends React.Component {
                                             name='firstname'
                                             onChange={this.handleChange}
                                             value={this.state.form.firstname || ''} 
-                                            // placeholder='this users firstname (this.props)' 
-                                            />
+                                            placeholder='this users firstname (this.props)' />
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
@@ -114,14 +115,9 @@ export default class Profile extends React.Component {
                             <Button>Update</Button>{' '}
                         </div> */}
                     </Col>
-                </Row>        
-
-                <Button color="primary" 
-                        onClick={() => this.updateUser(this.state.form)}>
-                    Update
-                </Button>{' '}
-
+                </Row>
             </Container>
         )
     }
 }
+
