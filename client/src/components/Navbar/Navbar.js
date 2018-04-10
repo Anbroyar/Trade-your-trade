@@ -45,8 +45,6 @@ class MyNavbar extends React.Component {
   //   // .then(Location.reload())
   // }
 
-
-
   renderPresence(globalState) {
     if (globalState.user) {
       return (
