@@ -116,13 +116,7 @@ export default class Profile extends React.Component {
                             <Button>Update</Button>{' '}
                         </div> */}
                     </Col>
-                </Row>        
-
-                <Button color="primary" 
-                        onClick={() => this.updateUser(this.state.form)}>
-                    Update
-                </Button>{' '}
-
+                </Row>
             </Container>
         )
     }

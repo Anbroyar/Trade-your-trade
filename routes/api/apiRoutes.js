@@ -19,10 +19,9 @@ function getCurrentUser(req, res) {
   const { id, username } = req.user;
   console.log("Logged in as ", username);
   db.User.findById(id).then(user => {
-    const userJSON = user2json(user);
+
     res.json({
-      // ...user2json(user),
-      userJSON,
+      ...user2json(user),
       id,
       username
     });
