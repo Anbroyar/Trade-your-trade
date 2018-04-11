@@ -70,7 +70,8 @@ export default class Profile extends React.Component {
                                         <Input 
                                             name='firstname'
                                             onChange={this.handleChange}
-                                            value={this.state.form.firstname || ''} 
+                                            value={this.state.form.firstname || ''}
+                                        />     
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
