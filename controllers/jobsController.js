@@ -21,7 +21,7 @@ module.exports = {
       jobType: req.body.jobType,
       totalHours: req.body.totalHours,
       totalCost: req.body.totalCost,
-      userRequested: req.body.userRequested
+      userRequested: req.user._id
     };
     db.Jobs
       .create(job)
