@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
+import axios from "axios";
 
 
 const btnStyle = {
@@ -14,7 +15,8 @@ const btnStyle = {
 export default class Profile extends React.Component {
 
     state = {
-        form: {}
+        form: {},
+        skills: []
     }
 
     handleChange = event => this.setState({
@@ -25,12 +27,18 @@ export default class Profile extends React.Component {
         errors: null
     })
 
-    loadUser = () => {
-        // axios.get('usersomething')
-        //     .then(res=> {
-        //         this.setState({form: res.data})
-        //     })
+    componentDidMount() {
+        axios.get('/skills')
+            .then(res => this.setState({skills: res.data}))
+            .catch(err => console.log('oh boi', err))
     }
+
+    // loadUser = () => {
+    //     // axios.get('usersomething')
+    //     //     .then(res=> {
+    //     //         this.setState({form: res.data})
+    //     //     })
+    // }
 
     syncGlobalState = (globalState) => {
         this.syncUserFromGlobalState(globalState.user)
@@ -107,9 +115,9 @@ export default class Profile extends React.Component {
                                 <CardBody>
                                     <CardTitle>My Skills</CardTitle>
 
-                                    <AddSkill />
-                                    <AddSkill />
-                                    <AddSkill />
+                                    <AddSkill skills={this.state.skills}/>
+                                    <AddSkill skills={this.state.skills}/>
+                                    <AddSkill skills={this.state.skills}/>
                                 </CardBody>  
                             </Card>
                         </div>

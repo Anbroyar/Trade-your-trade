@@ -43,9 +43,11 @@ export default class AddSkill extends React.Component{
                                 My Skills
                             </DropdownToggle>
                             <DropdownMenu>
-                                {/* WE NEED TO MAP THE SKILLS FROM DB HERE */}
-                                <DropdownItem>Auto repair</DropdownItem>
-                                <DropdownItem>Carpentry</DropdownItem>
+                                {this.props.skills.map(skill => 
+                                    <DropdownItem value={skill._id} key={skill._id}>
+                                        {skill.name}
+                                    </DropdownItem>
+                                )}
                             </DropdownMenu>
                         </Dropdown>
                     </Col> 
