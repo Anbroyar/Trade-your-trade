@@ -4,6 +4,11 @@ import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
 
 
+const btnStyle = {
+    background: "#e56",
+    float: "right"
+}
+
 // export default withUser(Profile); add this to bottom if not using global state
 
 export default class Profile extends React.Component {
@@ -111,9 +116,9 @@ export default class Profile extends React.Component {
                                 </CardBody>  
                             </Card>
                         </div>
-                        {/* <div className="my-2">
-                            <Button>Update</Button>{' '}
-                        </div> */}
+                        <div className="my-2">
+                            <Button style={btnStyle}>Update</Button>{' '}
+                        </div>
                     </Col>
                 </Row>
             </Container>

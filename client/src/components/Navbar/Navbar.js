@@ -9,11 +9,12 @@ import {
   Nav,
   NavItem,
   NavLink
- } from 'reactstrap';
- import "./Navbar.css";
- import LoginModal, {RegisterModal} from '../LoginModal'
- import { withUser, update } from '../../utils/withUser';
- import ApiContext from '../ApiContext'
+} from 'reactstrap';
+import "./Navbar.css";
+import LoginModal, {RegisterModal} from '../LoginModal'
+import { withUser, update } from '../../utils/withUser';
+import ApiContext from '../ApiContext';
+
 
 class MyNavbar extends React.Component {
   constructor(props) {
