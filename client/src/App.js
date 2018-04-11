@@ -10,7 +10,6 @@ import axios from 'axios';
 import {ApiContext} from './components/ApiContext';
 
 
-
 export default class App extends Component {  
   constructor(props) {
     super(props);
@@ -41,6 +40,7 @@ export default class App extends Component {
       // These are functions on the state, not methods on the component instance.
       // Auth related
       login: (form) => axios.post('api/auth', form).then(res => res.data),
+      logout: (form) => axios.delete('api/auth').then(() => this.state.setUser(null)),
       register: (form) => axios.post('api/users', form).then(res => res.data),
 
       // User related

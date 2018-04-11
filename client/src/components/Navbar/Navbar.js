@@ -35,22 +35,26 @@ class MyNavbar extends React.Component {
     this.props.history.push("/")
   }
 
-  handleLogout = event => {
-    axios({
-      url: '/api/auth',
-      method: 'delete',
-    })
-    .then(() => update(null));
-  }
+  // handleLogout = event => {
+  //   axios({
+  //     url: '/api/auth',
+  //     method: 'delete',
+  //   })
+  //   .then(() => update(null))
+  //   // .then(() => ApiContext.user = null)
+  //   // .then(Location.reload())
+  // }
 
-  renderPresence(user) {
-    if (user) {
+
+
+  renderPresence(globalState) {
+    if (globalState.user) {
       return (
         <Fragment>
           <NavItem className="navbar-text">
-            <span className="welcome-text">Welcome, {user.username}</span>
+            <span className="welcome-text">Welcome, {globalState.user.username}</span>
           </NavItem>
-          <NavItem className="navbar-text" onClick={this.handleLogout}>
+          <NavItem className="navbar-text clickable" onClick={globalState.logout}>
               Log Out
           </NavItem>
         </Fragment>
@@ -59,10 +63,10 @@ class MyNavbar extends React.Component {
     } else {
       return (
         <Fragment>
-          <NavItem className="mr-1">
+          <NavItem className="mr-1 clickable">
             <LoginModal />
           </NavItem>
-          <NavItem>
+          <NavItem className="mr-1 clickable">
             <RegisterModal />
           </NavItem>
         </Fragment>
@@ -86,20 +90,20 @@ class MyNavbar extends React.Component {
                   const {user} = globalState;
                   return (
                     <Nav className="ml-auto" navbar>
-                      {this.renderPresence(user)}
+                      {this.renderPresence(globalState)}
                       <NavItem>
-                        <NavLink className="navbar-text" href="/helpwanted">
+                        <NavLink className="navbar-text clickable" href="/helpwanted">
                           Help Wanted
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink className="navbar-text" href="/SearchPage">
-                            Search
+                        <NavLink className="navbar-text clickable" href="/SearchPage">
+                          Search
                         </NavLink>
                       </NavItem>
                       <NavItem>
                         {user && 
-                          <NavLink className="navbar-text" id="navbar-text" href="/ProfilePage">
+                          <NavLink className="navbar-text" id="navbar-text clickable" href="/ProfilePage">
                             Profile
                           </NavLink>
                         }
