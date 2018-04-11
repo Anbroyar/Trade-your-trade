@@ -10,13 +10,16 @@ const btnStyle = {
     float: "right"
 }
 
+const skillArray = [];
+
 // export default withUser(Profile); add this to bottom if not using global state
 
 export default class Profile extends React.Component {
 
     state = {
         form: {},
-        skills: []
+        skills: [],
+        selectedSkills: []
     }
 
     handleChange = event => this.setState({
@@ -26,6 +29,15 @@ export default class Profile extends React.Component {
        },
         errors: null
     })
+
+    handleSkillChange = event => {
+        skillArray.push(event.target.value);
+        this.setState({
+            selectedSkills: skillArray
+        });
+        console.log(this.state.selectedSkills);
+    }
+    
 
     componentDidMount() {
         axios.get('/skills')
@@ -115,9 +127,9 @@ export default class Profile extends React.Component {
                                 <CardBody>
                                     <CardTitle>My Skills</CardTitle>
 
-                                    <AddSkill skills={this.state.skills}/>
-                                    <AddSkill skills={this.state.skills}/>
-                                    <AddSkill skills={this.state.skills}/>
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill1"} placeholderText={"My Best Skill"}/>
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill2"} placeholderText={"My Second Best Skill"}/>
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill3"} placeholderText={"My Third Best Skill"}/>
                                 </CardBody>  
                             </Card>
                         </div>

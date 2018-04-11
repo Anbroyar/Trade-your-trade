@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Col, Row, Card, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'reactstrap';
 import axios from "axios";
 
 const btnStyle = {
@@ -38,7 +38,16 @@ export default class AddSkill extends React.Component{
             <Card>
                 <Row>
                     <Col xs='12' m={{size: 7, offset: 1}}>
-                        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                        <Input type="select" name={this.props.skillNumber} className="skill-input" placeholder={this.props.placeholderText}
+                        >
+                            <option>{this.props.placeholderText}</option>
+                                    {this.props.skills.map(skill => 
+                                        <option value={skill._id} key={skill._id}>
+                                            {skill.name}
+                                        </option>
+                                    )}
+                        </Input>
+                     {/*}   <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <DropdownToggle caret style={btnStyle}>
                                 My Skills
                             </DropdownToggle>
@@ -49,7 +58,7 @@ export default class AddSkill extends React.Component{
                                     </DropdownItem>
                                 )}
                             </DropdownMenu>
-                        </Dropdown>
+                        </Dropdown> */}
                     </Col> 
                 </Row>
             </Card>
