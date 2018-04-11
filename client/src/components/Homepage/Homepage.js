@@ -4,7 +4,6 @@ import './Homepage.css';
 import Carousel from '../Carousel/Carousel';
 
 
-
 class Homepage extends Component {
   render() {
     return (
