@@ -20,7 +20,8 @@ module.exports = {
       jobName: req.body.jobName,
       jobType: req.body.jobType,
       totalHours: req.body.totalHours,
-      totalCost: req.body.totalCost
+      totalCost: req.body.totalCost,
+      userRequested: req.body.userRequested
     };
     db.Jobs
       .create(job)
@@ -31,7 +32,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Jobs
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, {$set:{userAssigned: req.body.userId}})
       .then(dbJobs => res.json(dbJobs))
       .catch(err => res.status(422).json(err));
   },

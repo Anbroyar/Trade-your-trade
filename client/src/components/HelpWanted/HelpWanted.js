@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './HelpWanted.css';
 import axios from 'axios';
+import ApiContext from '../ApiContext';
+
 
 const btnStyle = {
     background: "#e56"

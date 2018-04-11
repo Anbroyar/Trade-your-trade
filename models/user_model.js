@@ -8,7 +8,7 @@ const UserSchema = new Schema ({
     type: String,
     trim: true,
     required: true,
-    index: { unique: true} 
+    index: { unique: true}
   },
   password: {
     type: String,
@@ -96,3 +96,39 @@ UserSchema.methods.validatePassword = function (candidatePassword) {
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
+
+User.seeds = (skills) => {
+  return User.create([
+    {
+      firstname: 'Zero',
+      lastname: 'Zoe',
+      skills: [],
+      password: 'test',
+      username: 'zoe'
+    },
+    {
+      firstname: 'Dennis',
+      lastname: 'Developer',
+      skills: [skills.Developer],
+      password: 'test',
+      username :'developer'
+    },
+    {
+      firstname: 'DJ',
+      lastname: 'Dan',
+      skills : [
+        skills.DJ,
+        skills.Musician,
+        skills.Developer
+      ],
+      password: 'test',
+      username: 'dj'
+    }
+  ]).then(users => {
+    let usersNameToCreatedObject = {};
+    for(user of users) {
+      usersNameToCreatedObject[user.username] = user;
+    }
+    return Object.assign(users, usersNameToCreatedObject);
+  })
+};

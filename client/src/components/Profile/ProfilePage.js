@@ -4,6 +4,11 @@ import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
 
 
+const btnStyle = {
+    background: "#e56",
+    float: "right"
+}
+
 // export default withUser(Profile); add this to bottom if not using global state
 
 export default class Profile extends React.Component {
@@ -59,11 +64,10 @@ export default class Profile extends React.Component {
                                 <Form>
                                     <FormGroup>
                                         <Label for='userphoto'>Photo URL: </Label>
-                                        <Input type='url' 
+                                        <Input 
                                             name='userphoto' 
                                             onChange={this.handleChange}
                                             value={this.state.form.userphoto || ''}
-                                            placeholder='this users photourl (this.props)'
                                         />
                                     </FormGroup>
                                     <FormGroup>
@@ -71,8 +75,8 @@ export default class Profile extends React.Component {
                                         <Input 
                                             name='firstname'
                                             onChange={this.handleChange}
-                                            value={this.state.form.firstname || ''} 
-                                            placeholder='this users firstname (this.props)' />
+                                            value={this.state.form.firstname || ''}
+                                        />     
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
@@ -80,17 +84,15 @@ export default class Profile extends React.Component {
                                         name='lastname'
                                         onChange={this.handleChange}
                                         value={this.state.form.lastname || ''}
-                                        //  placeholder='this users lastname (this.props)' 
                                          />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='email'>E-mail: </Label>
-                                        <Input type='text' 
+                                        <Input
                                         name='email'
                                         onChange={this.handleChange}
-                                        value={this.state.form.email || ''} 
-                                        // placeholder='this users email (this.props)' 
-                                        />    
+                                        value={this.state.form.email || ''}
+                                         />
                                     </FormGroup>
                                 </Form>
                             </CardBody>  
@@ -111,9 +113,9 @@ export default class Profile extends React.Component {
                                 </CardBody>  
                             </Card>
                         </div>
-                        {/* <div className="my-2">
-                            <Button>Update</Button>{' '}
-                        </div> */}
+                        <div className="my-2">
+                            <Button style={btnStyle}>Update</Button>{' '}
+                        </div>
                     </Col>
                 </Row>
             </Container>

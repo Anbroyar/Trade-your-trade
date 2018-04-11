@@ -11,7 +11,7 @@ function user2json(user) {
       phonenumber: user.phonenumber,
       userphoto: user.userphoto,
       skills: user.skills,
-      email: user.emails,
+      email: user.email,
   }
 }
 
@@ -86,9 +86,11 @@ router.route('/users')
   })
   .put((req, res) => {
     const {id} = req.user;
+    // console.log('YOOO', req.body)
     db.User.findById(id)
       .then(user => {
         user.set(req.body);
+        console.log('wtf', req.body)
         return user.save();
       })
       .then(user => res.json(user2json(user)))
