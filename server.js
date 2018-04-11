@@ -1,11 +1,11 @@
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const routes = require('./routes');
 const express = require("express");
 const path = require("path");
 const morgan = require('morgan');
 const PORT = process.env.PORT || 3001;
 const app = express();
+require('./models/connection');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -22,10 +22,6 @@ if (process.env.NODE_ENV === "production") {
 require('./passport')(app);
 
 app.use(routes);
-
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/trade_your_trade';
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
 
 // Send every request to the React app
 // Define any API routes before this runs
