@@ -66,26 +66,27 @@ export default class Profile extends React.Component {
                                         />
                                     </FormGroup>
                                     <FormGroup>
-                                        <Label for='firstname'>First Name: </Label>
+                                        <Label for='firstname' > First Name: </Label>
                                         <Input 
                                             name='firstname'
                                             onChange={this.handleChange}
-                                            value={this.state.form.firstname || ''} 
+                                            value={this.state.form.firstname || ''}
+                                        />
                                     </FormGroup>
                                     <FormGroup>    
                                         <Label for='lastname'>Last Name: </Label>
                                         <Input type='text' 
-                                        name='lastname'
-                                        onChange={this.handleChange}
-                                        value={this.state.form.lastname || ''}
+                                            name='lastname'
+                                            onChange={this.handleChange}
+                                            value={this.state.form.lastname || ''}
                                          />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='email'>E-mail: </Label>
                                         <Input
-                                        name='email'
-                                        onChange={this.handleChange}
-                                        value={this.state.form.email || ''}
+                                            name='email'
+                                            onChange={this.handleChange}
+                                            value={this.state.form.email || ''}
                                          />
                                     </FormGroup>
                                 </Form>
@@ -116,4 +117,3 @@ export default class Profile extends React.Component {
         )
     }
 }
-
