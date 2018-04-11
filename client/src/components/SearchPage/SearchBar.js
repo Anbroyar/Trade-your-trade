@@ -19,7 +19,7 @@ export default class Example extends React.Component {
   }
 
   loadSkills = event => axios({
-    url: "/api/skills",
+    url: "/skills",
     method: 'get'
   })
   .then(res =>
@@ -31,7 +31,7 @@ export default class Example extends React.Component {
   })
 
   handleSubmit = event => axios({
-    url: "/api/jobs", 
+    url: "/jobs", 
     method: 'get',
     data: {
       skill: event.target.value

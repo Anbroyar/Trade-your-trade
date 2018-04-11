@@ -34,6 +34,10 @@ export default class AddSkill extends React.Component{
     }
     
     render() {
+        let { skills } = this.state;
+        if (!skills) {
+            skills = [];
+        }
         return(
             <Card>
                 <Row>
@@ -43,9 +47,13 @@ export default class AddSkill extends React.Component{
                                 My Skills
                             </DropdownToggle>
                             <DropdownMenu>
-                                {/* WE NEED TO MAP THE SKILLS FROM DB HERE */}
-                                <DropdownItem>Auto repair</DropdownItem>
-                                <DropdownItem>Carpentry</DropdownItem>
+                                {skills.map(skill => {
+                                    return (
+                                        <DropdownItem key={skill._id}> 
+                                        {skill.name}
+                                        </DropdownItem>
+                                    )
+                                })}
                             </DropdownMenu>
                         </Dropdown>
                     </Col> 

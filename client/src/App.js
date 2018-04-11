@@ -77,7 +77,7 @@ export default class App extends Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/helpwanted" component={HelpWanted} />
               <Route exact path="/profile" component={Profile} />
-              <Route exact path="/searchpage" component={SearchPage} />
+              <Route exact path="/searchpage" component={SearchPage} jobs={this.state.jobs} />
               <Route exact path="/profilepage" component={ProfilePage} />
             </Switch>
             </Fragment> 
