@@ -36,3 +36,22 @@ const jobsSchema = new Schema ({
 const Jobs = mongoose.model("Jobs", jobsSchema);
 
 module.exports = Jobs;
+
+Jobs.seeds = (users, skills) => {
+  return Jobs.create([
+    {
+      jobName: 'DJing at a Teachers House, I will tutor your kids',
+      jobType: skills.DJ,
+      userRequested: users.zoe,
+      totalHours: 2,
+      totalCost: 12
+    },
+    {
+      jobName: 'Develop the next facebook',
+      jobType: skills.Developer,
+      userRequested: users.zoe,
+      totalHours: 10e100,
+      totalCost: 0
+    }
+  ])
+}
