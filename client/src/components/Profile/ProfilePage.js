@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
-import { withUser, update } from '../../utils/withUser';
 
 
 // export default withUser(Profile); add this to bottom if not using global state

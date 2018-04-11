@@ -5,9 +5,9 @@ import { update } from '../utils/withUser';
 import "./Navbar";
 import ApiContext from './ApiContext';
 
-const btnStyle = {
-    background: "#e56"
-}
+// const btnStyle = {
+//     background: "#e56"
+// }
 
 class AbstractUserModalForm extends React.Component {
 
@@ -77,7 +77,7 @@ class AbstractUserModalForm extends React.Component {
                         {(globalState) =>  {
                                 const submitFn = globalState[this.globalFunctionName];
                                 return (
-                                    <Button 
+                                    <Button
                                         color="primary" 
                                         onClick={() =>this.handleSubmit(submitFn)}>
                                         Submit
