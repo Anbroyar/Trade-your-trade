@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import "./WantedAd.css";
+import ApiContext from '../ApiContext';
+
+
+const btnStyle = {
+    background: "#e56"
+}
 
 class WantedAd extends Component {
 
@@ -17,7 +23,7 @@ class WantedAd extends Component {
             <CardText>Can Provide: {this.props.userSkills}
                       Located {this.props.distance} miles away
             </CardText>
-            <Button>Create Trade Offer</Button>
+            <Button style={btnStyle}>Create Trade Offer</Button>
           </CardBody>
         </Card>
       </div>

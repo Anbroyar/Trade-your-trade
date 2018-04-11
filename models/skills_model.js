@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const skillsSchema = new Schema ({
-  name: String
+  name: {
+    type: String,
+    index: true
+  }
 });
 
 const Skills = mongoose.model("Skill", skillsSchema);
@@ -11,12 +14,12 @@ const Skills = mongoose.model("Skill", skillsSchema);
 module.exports = Skills;
 
 Skills.seeds = () => {
-  Skills.create([
+  return Skills.create([
     {name: 'DJ'},
     {name: 'Carpenter'},
     {name: 'Developer'},
     {name: 'Designer'},
-    {name: 'Babysiter'},
+    {name: 'Babysitter'},
     {name: 'Accountant'},
     {name: 'Architect'},
     {name: 'Photographer'},
@@ -25,12 +28,19 @@ Skills.seeds = () => {
     {name: 'Musician'},
     {name: 'Cook'},
     {name: 'Hairdresser'},
-    {name: 'MusicTeacher'},
+    {name: 'Music Teacher'},
     {name: 'Mechanic'},
     {name: 'Nutritionist'},
-    {name: 'PetGroomer'},
+    {name: 'Pet Groomer'},
     {name: 'Roofer'},
     {name: 'Tutor'},
     {name: 'Housekeeper'},
-  ])
+  ]).then(skillsArray => {
+    let skillsNameToCreatedObject = {};
+    for(skill of skillsArray) {
+      skillsNameToCreatedObject[skill.name] = skill;
+    }
+    return Object.assign(skillsArray, skillsNameToCreatedObject);
+  })
+  .catch(error => console.log(error))
 };
