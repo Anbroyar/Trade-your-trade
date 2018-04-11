@@ -57,11 +57,10 @@ export default class Profile extends React.Component {
                                 <Form>
                                     <FormGroup>
                                         <Label for='userphoto'>Photo URL: </Label>
-                                        <Input type='url' 
+                                        <Input 
                                             name='userphoto' 
                                             onChange={this.handleChange}
                                             value={this.state.form.userphoto || ''}
-                                            // placeholder='this users photourl (this.props)'
                                         />
                                     </FormGroup>
                                     <FormGroup>
@@ -70,7 +69,6 @@ export default class Profile extends React.Component {
                                             name='firstname'
                                             onChange={this.handleChange}
                                             value={this.state.form.firstname || ''} 
-                                            // placeholder='this users firstname (this.props)' 
                                             />
                                     </FormGroup>
                                     <FormGroup>    
@@ -79,17 +77,15 @@ export default class Profile extends React.Component {
                                         name='lastname'
                                         onChange={this.handleChange}
                                         value={this.state.form.lastname || ''}
-                                        //  placeholder='this users lastname (this.props)' 
                                          />
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='email'>E-mail: </Label>
-                                        <Input type='text' 
+                                        <Input
                                         name='email'
                                         onChange={this.handleChange}
-                                        value={this.state.form.email || ''} 
-                                        // placeholder='this users email (this.props)' 
-                                        />    
+                                        value={this.state.form.email || ''}
+                                         />
                                     </FormGroup>
                                 </Form>
                             </CardBody>  
