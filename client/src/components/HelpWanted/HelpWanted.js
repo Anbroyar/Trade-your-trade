@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './HelpWanted.css';
+import WantedAd from '../WantedAd/WantedAd';
 import axios from 'axios';
 import ApiContext from '../ApiContext';
 
@@ -85,9 +86,20 @@ class HelpWanted extends Component {
 							Create Ad
 						</Button>
 	      </Form>
+		<div className="row">
+            <div className="col-md-4">
+                <WantedAd />
+            </div>
+            <div className="col-md-4">
+                <WantedAd />
+            </div>
+            <div className="col-md-4">
+                <WantedAd />
+            </div>
+        </div>
       </div>
     );
-  }
+  };
 }
 
 export default HelpWanted;
