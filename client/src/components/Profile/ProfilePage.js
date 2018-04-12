@@ -23,34 +23,34 @@ export default class Profile extends React.Component {
     }
 
     handleChange = event => this.setState({
-       form: {
+        form: {
            ...this.state.form,
            [event.target.name]: event.target.value,
-       },
+        },
         errors: null
     })
 
-    handleSkillChange = event => {
-        skillArray.push(event.target.value);
-        this.setState({
-            selectedSkills: skillArray
-        });
-        console.log(this.state.selectedSkills);
-    }
-    
+    // handleSkillChange = event => {
+    //     skillArray.push(event.target.value);
+    //     this.setState({
+    //         selectedSkills: skillArray
+    //     });
+    //     console.log(this.state.selectedSkills);
+    // }
+
+    // handleSubmit = (req, res) => {
+    //     axios.put('/users', this.state.form)
+    //     .then(res => {
+    //         this.setState({form: {}});
+    //     })
+    //     .catch(err => console.log("Error: ", err))
+    // }    
 
     componentDidMount() {
         axios.get('/skills')
-            .then(res => this.setState({skills: res.data}))
-            .catch(err => console.log('oh boi', err))
+        .then(res => this.setState({skills: res.data}))
+        .catch(err => console.log('oh boi', err))
     }
-
-    // loadUser = () => {
-    //     // axios.get('usersomething')
-    //     //     .then(res=> {
-    //     //         this.setState({form: res.data})
-    //     //     })
-    // }
 
     syncGlobalState = (globalState) => {
         this.syncUserFromGlobalState(globalState.user)
@@ -68,8 +68,6 @@ export default class Profile extends React.Component {
         }
     }
     
-    
-
     render() {
         return (
             <Container>
@@ -134,7 +132,7 @@ export default class Profile extends React.Component {
                             </Card>
                         </div>
                         <div className="my-2">
-                            <Button style={btnStyle}>Update</Button>{' '}
+                            <Button onClick={this.handleSubmit} style={btnStyle}>Update</Button>{' '}
                         </div>
                     </Col>
                 </Row>
