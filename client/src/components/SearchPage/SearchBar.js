@@ -126,7 +126,7 @@ export default class Example extends React.Component {
         </Form>
         <Container>
           {this.state.jobs.map(job => 
-            <Container className="job-container">
+            <div className="job-container">
               <Row >
                 <Col sm={{ size: 12, offset: 1}}>
                   {job.jobName}
@@ -144,12 +144,15 @@ export default class Example extends React.Component {
               </Row>
               <Row>
                 <Col sm={{ size: 12, offset: 1}}>
-                  <Button className="apply-button" style={btnStyle}>
+                  <Button
+                    className="apply-button"
+                    style={btnStyle}
+                  >
                     Apply
                   </Button>
                 </Col>
               </Row>
-            </Container>
+            </div>
           )}
         </Container>
       </div>
