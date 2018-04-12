@@ -20,7 +20,7 @@ const jobsSchema = new Schema ({
   },
   userRequested: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'User.username',
     // required: true
   },
   userAssigned: {
@@ -38,6 +38,7 @@ const Jobs = mongoose.model("Jobs", jobsSchema);
 module.exports = Jobs;
 
 Jobs.seeds = (users, skills) => {
+  console.log(users);
   return Jobs.create([
     {
       jobName: 'DJing at a Teachers House, I will tutor your kids',
