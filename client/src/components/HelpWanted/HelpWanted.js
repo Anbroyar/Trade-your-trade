@@ -55,7 +55,7 @@ class HelpWanted extends Component {
 	      <Form inline className="form-search-skills">
 	        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
 	        	<Label for="totalHours" className="label-text">I'm looking for</Label>
-						<Input name="totalHours" className="hours-input" placeholder="# hours" 
+						<Input type="number" name="totalHours" className="hours-input" placeholder="# hours" 
 							value={this.state.form.totalHours || ''}
 							onChange={this.handleChange}
 						/>
@@ -72,7 +72,7 @@ class HelpWanted extends Component {
 							)}
 	        	</Input>
 	        	<Label for="estimatedCost" className="label-text">Estimated Cost: $</Label>
-	        	<Input type="number" name="totalCost" className="cost-input"
+	        	<Input type="number" name="totalCost" className="cost-input" placeholder="Estimated Cost in USD"
 	        		value={this.state.form.totalCost || ""}
 	        		onChange={this.handleChange}
 	        	/>
