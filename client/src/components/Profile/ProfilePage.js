@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import AddSkill from './AddSkill.js';
 import ApiContext from '../ApiContext';
+import axios from "axios";
 
 
 const btnStyle = {
@@ -9,27 +10,46 @@ const btnStyle = {
     float: "right"
 }
 
+const skillArray = [];
+
 // export default withUser(Profile); add this to bottom if not using global state
 
 export default class Profile extends React.Component {
 
     state = {
-        form: {}
+        form: {},
+        skills: [],
+        selectedSkills: []
     }
 
     handleChange = event => this.setState({
-       form: {
+        form: {
            ...this.state.form,
            [event.target.name]: event.target.value,
-       },
+        },
         errors: null
     })
 
-    loadUser = () => {
-        // axios.get('usersomething')
-        //     .then(res=> {
-        //         this.setState({form: res.data})
-        //     })
+    // handleSkillChange = event => {
+    //     skillArray.push(event.target.value);
+    //     this.setState({
+    //         selectedSkills: skillArray
+    //     });
+    //     console.log(this.state.selectedSkills);
+    // }
+
+    // handleSubmit = (req, res) => {
+    //     axios.put('/users', this.state.form)
+    //     .then(res => {
+    //         this.setState({form: {}});
+    //     })
+    //     .catch(err => console.log("Error: ", err))
+    // }    
+
+    componentDidMount() {
+        axios.get('/skills')
+        .then(res => this.setState({skills: res.data}))
+        .catch(err => console.log('oh boi', err))
     }
 
     syncGlobalState = (globalState) => {
@@ -48,8 +68,6 @@ export default class Profile extends React.Component {
         }
     }
     
-    
-
     render() {
         return (
             <Container>
@@ -107,14 +125,14 @@ export default class Profile extends React.Component {
                                 <CardBody>
                                     <CardTitle>My Skills</CardTitle>
 
-                                    <AddSkill />
-                                    <AddSkill />
-                                    <AddSkill />
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill1"} placeholderText={"My Best Skill"}/>
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill2"} placeholderText={"My Second Best Skill"}/>
+                                    <AddSkill onChange={this.handleSkillChange} skills={this.state.skills} skillNum={"skill3"} placeholderText={"My Third Best Skill"}/>
                                 </CardBody>  
                             </Card>
                         </div>
                         <div className="my-2">
-                            <Button style={btnStyle}>Update</Button>{' '}
+                            <Button onClick={this.handleSubmit} style={btnStyle}>Update</Button>{' '}
                         </div>
                     </Col>
                 </Row>

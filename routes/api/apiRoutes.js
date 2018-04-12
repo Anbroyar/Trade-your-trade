@@ -85,9 +85,9 @@ router.route('/users')
       });
   })
   .put((req, res) => {
-    const {id} = req.user;
+    const { _id } = req.user;
     // console.log('YOOO', req.body)
-    db.User.findById(id)
+    db.User.findById(_id)
       .then(user => {
         user.set(req.body);
         console.log('wtf', req.body)
