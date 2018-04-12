@@ -71,14 +71,19 @@ class HelpWanted extends Component {
 								</option>
 							)}
 	        	</Input>
+	        	<Label for="estimatedCost" className="label-text">Estimated Cost: $</Label>
+	        	<Input type="number" name="totalCost" className="cost-input"
+	        		value={this.state.form.totalCost || ""}
+	        		onChange={this.handleChange}
+	        	/>
 						</FormGroup>
 						<Button 
 							style={btnStyle}
 							onClick={this.handleSubmit} 
 							className="create-ad"
 						>
-								Create Ad
-							</Button>
+							Create Ad
+						</Button>
 	      </Form>
       </div>
     );
