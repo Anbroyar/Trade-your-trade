@@ -96,7 +96,7 @@ class HelpWanted extends Component {
             <div className="col-md-4">
                 <WantedAd />
             </div>
-        </div>
+        </div>	
       </div>
     );
   };
