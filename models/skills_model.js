@@ -35,6 +35,7 @@ Skills.seeds = () => {
     {name: 'Roofer'},
     {name: 'Tutor'},
     {name: 'Housekeeper'},
+    {name: 'Electrician'}
   ]).then(skillsArray => {
     let skillsNameToCreatedObject = {};
     for(skill of skillsArray) {
